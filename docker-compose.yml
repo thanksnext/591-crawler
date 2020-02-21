@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  backend:
+    image: 591_crawler:latest
+    container_name: 591_crawler
+    depends_on:
+      - db
+
+
+  db:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - db_data:/var/lib/mongo
+  
+volumes:
+  db_data:
+
